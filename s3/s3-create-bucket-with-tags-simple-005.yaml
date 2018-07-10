@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Creating bucket with tags. This is the first test
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      Tags:
+        - Key: Project 
+          Value: Orion
