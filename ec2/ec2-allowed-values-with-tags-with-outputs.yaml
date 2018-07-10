@@ -7,10 +7,10 @@ Parameters:
   SubnetIds:
     Description: "Select appropriate subnet for the AMIs."
     Type: String
-    Default: subnet-fd4dbf9a
+    Default: subnet-gkljfsp3o443
     AllowedValues:
-      - subnet-fd4dbf9a
-      - subnet-8d29f1d1
+      - subnet-xjfd235uo4
+      - subnet-oi3u4u543i
 
   InstanceTypeParameter:
     Description: "Choose from t2.micro, m1.small or m1.large. Default is t2.micro."
