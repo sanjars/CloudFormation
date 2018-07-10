@@ -1,0 +1,28 @@
+# Allows us to change the tag name with adding "Region" name
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: ami-afd15ed0
+      InstanceType: t2.micro
+      KeyName: custodian
+      SubnetId: subnet-fd4dbf9a
+      SecurityGroupIds:
+        - !Ref MySecurityGroup
+      Tags:
+        - Key: Name
+          Value: !Join
+          - ""
+          - - "host-cf-test-for-"
+            - !Ref AWS::Region  # Pseudo parameter reference
+  MySecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupName: eden-cf-sg-pseudo
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+      VpcId: vpc-97b4ffec 

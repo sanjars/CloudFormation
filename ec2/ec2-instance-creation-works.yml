@@ -1,0 +1,14 @@
+Resources: 
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      DisableApiTermination: False
+      ImageId: ami-afd15ed0
+      InstanceType: t2.micro
+      KeyName: custodian
+      SecurityGroupIds: 
+        - sg-7dc4e634
+      SubnetId: subnet-fd4dbf9a
+      Tags: 
+        - Key: Name
+          Value: host-cf-test-3

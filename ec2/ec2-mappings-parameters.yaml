@@ -1,0 +1,29 @@
+# Info: We are having an option to choose subnets and we are typing our instnace name.
+# Note: The subnets parameter is MUST! Otherwise, it will fail. 
+Parameters:
+  NameOfInstance:
+    Description: "The name for your EC2 instance. Type your new instance name."
+    Type: String
+  SubnetIds:
+    Description: "Select appropriate subnet for the AMIs."
+    Type: AWS::EC2::Subnet::Id
+Mappings:
+  RegionMap:
+    us-east-2: 
+      AMI: ami-922914f7
+    us-west-1:
+      AMI: ami-00d8c660
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId:
+        Fn::FindInMap:
+        - RegionMap
+        - !Ref AWS::Region
+        - AMI
+      InstanceType: t2.micro
+      SubnetId: !Ref SubnetIds
+      Tags:
+        - Key: Name
+          Value: !Ref NameOfInstance       

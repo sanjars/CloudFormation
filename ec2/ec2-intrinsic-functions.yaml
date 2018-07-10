@@ -1,0 +1,16 @@
+# In here, we are changing the name tag for one of the existing EC2 instances
+Resources: 
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: ami-afd15ed0
+      InstanceType: t2.micro
+      KeyName: custodian
+      SecurityGroupIds: 
+        - sg-7dc4e634
+      SubnetId: subnet-fd4dbf9a
+      Tags: 
+        - Key: Name
+          Value: !Join [ " ", [EC2, Instance, with, Fn, Join]]
+        - Key: Project
+          Value: !Join [ " ", [optimus-prime-primary]]

@@ -1,0 +1,35 @@
+Parameters:
+  NameOfInstance:
+    Description: "The name for your EC2 instance."
+    Type: String
+  SubnetIds:
+    Description: "Select appropriate subnet for the AMIs."
+    Type: AWS::EC2::Subnet::Id
+  BillingTag:
+    Type: String
+    Default: "AllDepartments"
+    Description: "Enter Finance, IT, DevOps or AllDepartments. Default is AllDepartments." 
+Mappings:
+  RegionMap:
+    us-east-2: 
+      AMI: ami-922914f7
+    us-west-1:
+      AMI: ami-00d8c660
+    us-east-1:
+      AMI: ami-afd15ed0
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId:
+        Fn::FindInMap:
+        - RegionMap
+        - !Ref AWS::Region
+        - AMI
+      InstanceType: t2.micro
+      SubnetId: !Ref SubnetIds
+      Tags:
+        - Key: Name
+          Value: !Ref NameOfInstance
+        - Key: Billing
+          Value: !Ref BillingTag
