@@ -5,9 +5,9 @@ Resources:
     Properties:
       ImageId: ami-afd15ed0
       InstanceType: t2.micro
-      KeyName: custodian
+      KeyName: my_key_name
       SecurityGroupIds: 
-        - sg-7dc4e634
+        - sg-80974309bfd
       SubnetId: subnet-fd4dbf9a
       Tags: 
         - Key: Name

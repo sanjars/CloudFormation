@@ -5,10 +5,10 @@ Resources:
       DisableApiTermination: False
       ImageId: ami-afd15ed0
       InstanceType: t2.micro
-      KeyName: custodian
+      KeyName: my_key_name
       SecurityGroupIds: 
-        - sg-7dc4e634
-      SubnetId: subnet-fd4dbf9a
+        - sg-3u45u34i5u43
+      SubnetId: subnet-iu3ur3uri3
       Tags: 
         - Key: Name
-          Value: host-cf-test-3
+          Value: host-my-web-server

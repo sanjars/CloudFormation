@@ -5,15 +5,15 @@ Resources:
     Properties:
       ImageId: ami-afd15ed0
       InstanceType: t2.micro
-      KeyName: custodian
-      SubnetId: subnet-fd4dbf9a
+      KeyName: my_key_name
+      SubnetId: subnet-038948fkds
       SecurityGroupIds:
         - !Ref MySecurityGroup
       Tags:
         - Key: Name
           Value: !Join
           - ""
-          - - "host-cf-test-for-"
+          - - "server-test-for-"
             - !Ref AWS::Region  # Pseudo parameter reference
   MySecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'

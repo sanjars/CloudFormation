@@ -5,17 +5,17 @@ Resources:
     Properties:
       ImageId: ami-afd15ed0
       InstanceType: t2.micro
-      KeyName: custodian
+      KeyName: my_key_name
       SecurityGroupIds:
         - !Ref MySecurityGroup
-      SubnetId: subnet-fd4dbf9a
+      SubnetId: subnet-gjlkja2345
       Tags:
         - Key: Name
           Value: !Join [ " ", [host-amazon-linux-cf-test-1]]
   MySecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
-      GroupName: eden-cf-sg
+      GroupName: my_new_security_group_name
       GroupDescription: Enable SSH access via port 22
       SecurityGroupIngress:
         - IpProtocol: tcp
